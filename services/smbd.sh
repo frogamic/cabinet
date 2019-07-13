@@ -1,6 +1,6 @@
-#!/usr/bin/execlineb -P
+#!/usr/bin/with-contenv sh
 
 smbd --foreground \
      --log-stdout \
      --no-process-group \
-     --configfile /config/smb.conf
+     --configfile $SMB_CONFIG

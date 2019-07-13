@@ -1,6 +1,6 @@
-#!/usr/bin/execlineb -P
+#!/usr/bin/with-contenv sh
 
 nmbd --foreground \
      --log-stdout \
      --no-process-group \
-     --configfile /config/smb.conf
+     --configfile $SMB_CONFIG
