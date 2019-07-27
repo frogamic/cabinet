@@ -1,5 +1,7 @@
 #!/usr/bin/with-contenv sh
 
+cabinett import
+
 # Automount shares
 if [ "$AUTO_SHARE" = "TRUE" ]; then
 
@@ -21,8 +23,5 @@ if [ "$AUTO_SHARE" = "TRUE" ]; then
   done
 fi
 
-# sanity check
-if [ ! -f "$CONFIG_DIR/smb.conf" ]; then
-  echo "*****  smb.conf missing from $CONFIG_DIR  *****"
-  exit 1
-fi
+# Ensure valid config
+testparm $CONFIG_DIR/smb.conf

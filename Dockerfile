@@ -16,5 +16,6 @@ ENV AUTO_SHARE="FALSE" \
 COPY init/smbconf.sh /etc/cont-init.d/smbconf
 COPY services/smbd.sh /etc/services.d/smbd/run
 COPY services/nmbd.sh /etc/services.d/nmbd/run
+COPY cabinett.sh /usr/bin/cabinett
 
 ENTRYPOINT ["/init"]
