@@ -8,11 +8,12 @@ RUN ["/sbin/apk", "add", "--no-cache", "samba-server", "samba-common-tools", "op
 
 EXPOSE 137/udp 138/udp 139/tcp 445/tcp
 VOLUME ["/share", "/config"]
-ENV AUTO_SHARE="TRUE" SMB_CONFIG="/config/smb.conf"
+ENV AUTO_SHARE="FALSE" \
+    CONFIG_DIR="/config" \
+    S6_BEHAVIOUR_IF_STAGE2_FAILS="2"
 
 
-COPY init/autoshare.sh /etc/cont-init.d/00-autoshare
-COPY init/final-check.sh /etc/cont-init.d/99-final-check
+COPY init/smbconf.sh /etc/cont-init.d/smbconf
 COPY services/smbd.sh /etc/services.d/smbd/run
 COPY services/nmbd.sh /etc/services.d/nmbd/run
 

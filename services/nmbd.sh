@@ -3,4 +3,4 @@
 nmbd --foreground \
      --log-stdout \
      --no-process-group \
-     --configfile $SMB_CONFIG
+     --configfile "$CONFIG_DIR/smb.conf"
